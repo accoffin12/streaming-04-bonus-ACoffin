@@ -8,9 +8,12 @@ Demonstrating the application of a Round Robin Schedule with RabbitMQ to analyis
 # Table of Contents
 1. [File List](File_List)
 2. [Machine Specs](Machine_specs)
-3. [Data Source](Data_Source)
+3. [Prerequisites](Prerequisites)
+4. [Before you Begin](Before_you_begin)
+5. [Data Source](Data_Source)
     * [About the NYC Subway System](About_the_NYC_Subway_System)
-4. [Modifications of Data](Modifications_of_Data)
+6. [Modifications of Data](Modifications_of_Data)
+7. [Creating an Enviroment & Installs](Creating_an_Enviroment_&_Installs)
 
 # 1. File List
 | File Name | Repo Location | Type |
@@ -39,14 +42,28 @@ This project was created using a Windows OS computer with the following specs. T
 * Terminal Type:               cmd.exe
 * Preferred command:           python
 
-# 3. Data Source
+# 3. Prerequisites
+1. Git
+2. Python 3.7+ (3.11+ preferred)
+3. VS Code Editor
+4. VS Code Extension: Python (by Microsoft)
+5. RabbitMQ Server Installed and Running Locally
+6. Anaconda Installed
+
+# 4. Before you Begin
+1. Fork this starter repo into your GitHub.
+2. Clone your repo down to your machine.
+3. View / Command Palette - then Python: Select Interpreter
+4. Select your conda environment.
+
+# 5. Data Source
 The Metropolitan Transportation Authority(MTA) is responsible for all public transport in New York City and collects data in batches by the hour. This batching creates counts for the number of passengers boarding a subway at a specific station. It also provides data concerning payment, geography, time, date, and location of moving populations based on stations.
 
 MTA Data is readily available from New York State from their Portal.
 
 NYC MTA Data for Subways: https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-February-202/wujg-7c2s/about_data
 
-## 3a. About the NYC Subway System
+## 5a. About the NYC Subway System
 
 The New York City Subway system has 24 subway lines and 472 stations throughout Manhattan, Brooklyn, Wueens and the Bronx. Statan Island does not have a subway system but a ferry system and an above ground train. The lines are listed in the chart based on their Line Reference. Some Lines do have local express services that share a line but stop at different stations. For the full MTA Subway Map view [Subway Map.pdf](Maps/Subway%20Map.pdf).
 
@@ -70,7 +87,61 @@ The New York City Subway system has 24 subway lines and 472 stations throughout 
 
 
 
-# 4. Modifications of Data
+# 6. Modifications of Data
 The original source contained 12 columns, this was altered to a total of 7 columns. The original column from the data set called "transit_time" has been split into only date and time. Time has also been converted to military time for clarity. There are 56.3 million rows in this set, the same as the original.
 
 The focus of this project is on transit_date, transit_time, station_complex_id, station_complex, borough, and rideship. The columns "payment", "fare", "transfers", "lat", "long" and "geo-reference have been removed. 
+
+# 7. Creating an Enviroment & Installs
+Before beginning this project two environments were made, one as a VS Code environment and the other as an Anaconda environment. RabbitMQ requires the Pika Library to function, to ensure that the scripts execute and create an environment in either VS Code or Anaconda.
+
+VS Code Environments allow us to create a virtual environment within the workspace to isolate Python projects with its pre-installed packages and interpreter. For light projects, this is optimal as VS Code environments will not touch other environments or Python installations. However, pre-installed packages can be limited, and the environments will only stay within the selected folder. Meaning that you can't simply call in another environment. The second method of creating an Anaconda environment is different, it's designed for a heavier workload. This method creates a specific reusable environment with specific Python versions and pre-installed packages. However, this method can be heavier due to the additional packages.
+
+While the Anaconda Environment is not necessary for this project it was utilized to ensure that the environments between VS Code and Anaconda were consistent when running the v1 and v2 emitters in VS Code with the v1 and v2 listening scripts running in Anaconda.
+
+## 7a. Creating VS Code Environment
+To create a local Python virtual environment to isolate our project's third-party dependencies from other projects. Use the following commands to create an environment, when prompted in VS Code set the .venv to a workspace folder and select yes.
+```
+python - m venv .venv # Creates a new environment
+.venv\Scripts\activate # Activates the new environment
+```
+Once the environment is created install the following:
+```
+python -m pip install -r requirements.txt
+```
+For more information on Pika see the [Pika GitHub](https://github.com/pika/pika)
+
+## 5b. Creating Anaconda Environment
+To create an Anaconda environment open an Anaconda Prompt, the first thing that will pop up is the base. Then we are going to locate our folder, to do this type the following:
+```
+cd \Dcuments\folder_where_repo_is\ 
+cd \Documents\ACoffinCSIS44671\streaming-04-multiple-consumers # This is where the file is located on my computer
+```
+Once the folder has been located the line should look like this:
+```
+(base) C:\Users\Documents\folder_where_repo_is\streaming-04-multiple-consumers>
+(base) C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-04-multiple-consumers> # My File Path
+```
+To create an environment do the following:
+```
+conda create -n RabbitEnv # Creates the environment
+conda activate RabbitEnv # Activates Environment
+This will create the environment, if you want to deactivate it, enter: conda deactivate
+```
+
+Once the environment is created execute the following:
+```
+python --version # Indicates Python Version Installed
+conda config --add channels conda-forge # connects to conda forge
+conda config --set channel_priority strict # sets priority
+install pika # library installation
+```
+Be sure to do each individually to install Pika in the environment. You have to use the forge to do this with Anaconda.
+
+# 5c. Setup Verification
+To verify the setup of your environment run both util_about.py and util_aboutenv.py found in the util's folder or use the following commands in the terminal. These commands are structured for Windows OS if using MacOS or Linux modified to have them function. Also, run the pip list in the terminal to check the Pika installation.
+```
+python ".\\utils\util_about.py"
+python ".\\utils\util_aboutenv.py"
+pip list
+```
