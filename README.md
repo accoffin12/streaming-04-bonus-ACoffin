@@ -115,12 +115,12 @@ For more information on Pika see the [Pika GitHub](https://github.com/pika/pika)
 To create an Anaconda environment open an Anaconda Prompt, the first thing that will pop up is the base. Then we are going to locate our folder, to do this type the following:
 ```
 cd \Dcuments\folder_where_repo_is\ 
-cd \Documents\ACoffinCSIS44671\streaming-04-multiple-consumers # This is where the file is located on my computer
+cd \Documents\ACoffinCSIS44671\streaming-04-bonus-ACoffin # This is where the file is located on my computer
 ```
 Once the folder has been located the line should look like this:
 ```
-(base) C:\Users\Documents\folder_where_repo_is\streaming-04-multiple-consumers>
-(base) C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-04-multiple-consumers> # My File Path
+(base) C:\Users\Documents\folder_where_repo_is\streaming-04-bonus-ACoffin>
+(base) C:\Users\Tower\Documents\ACoffinCSIS44671\streaming-04-bonus-ACoffin> # My File Path
 ```
 To create an environment do the following:
 ```
