@@ -111,7 +111,7 @@ python -m pip install -r requirements.txt
 ```
 For more information on Pika see the [Pika GitHub](https://github.com/pika/pika)
 
-## 5b. Creating Anaconda Environment
+## 7b. Creating Anaconda Environment
 To create an Anaconda environment open an Anaconda Prompt, the first thing that will pop up is the base. Then we are going to locate our folder, to do this type the following:
 ```
 cd \Dcuments\folder_where_repo_is\ 
@@ -138,10 +138,12 @@ install pika # library installation
 ```
 Be sure to do each individually to install Pika in the environment. You have to use the forge to do this with Anaconda.
 
-# 5c. Setup Verification
+## 7c. Setup Verification
 To verify the setup of your environment run both util_about.py and util_aboutenv.py found in the util's folder or use the following commands in the terminal. These commands are structured for Windows OS if using MacOS or Linux modified to have them function. Also, run the pip list in the terminal to check the Pika installation.
 ```
 python ".\\utils\util_about.py"
 python ".\\utils\util_aboutenv.py"
 pip list
 ```
+# 8. Method
+For this project we will be utilizing a Round Robbin Schedule to pull data from multiple columns. The objective is to send one column to one Consumer and another Column to a different one but have both being emitted by the same Producer. In this case we will be using the first producer to pull only stops related to the Number 7 Flushing Line. This line connects Manhattan to Queens, specifically Long Island City. We want to know how many people are using this line. The second Consumer will be looking for the Hunter's Point Station and capitalizing the letters. Both of these will feed into a csv file called "MTA_7Flushing_Output.csv". 
