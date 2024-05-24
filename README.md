@@ -146,7 +146,7 @@ python ".\\utils\util_aboutenv.py"
 pip list
 ```
 # 8. Method
-For this project we will be utilizing a Round Robbin Schedule to pull data from multiple columns. The objective is to send one column to one Consumer and another Column to a different one but have both being emitted by the same Producer. In this case we will be using the first producer to pull only stops related to the Number 7 Flushing Line. This line connects Manhattan to Queens, specifically Long Island City. We want to know how many people are using this line. The second Consumer will be looking for the Hunter's Point Station and capitalizing the letters. Both of these will feed into a csv file called "MTA_7Flushing_Output.csv". 
+For this project we will be utilizing a Round Robbin Schedule to pull data from multiple columns. The objective is to send one column to one Consumer and another Column to a different one but have both being emitted by the same Producer. In this case we will be using the first producer to pull only stops related to the Number 7 Flushing Line. This line connects Manhattan to Queens, specifically Long Island City. We want to know how many people are using this line. The second Consumer will be looking for the Hunter's Point Station and capitalizing the letters. Both of these will feed into a csv file called "MTA_7Flushing_Output.csv". The second is to transform all of the station names to capital letters, which is in MTACaps_Consumer.py.
 
 The following Stations are on the Number 7, Flushing Line:
 | station_complex_id | station_complex |

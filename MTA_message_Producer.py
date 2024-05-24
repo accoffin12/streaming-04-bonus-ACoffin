@@ -22,7 +22,6 @@ from utils.util_logger import setup_logger
 # Configuring the Logger:
 logger, logname = setup_logger(__file__)
 
-SHOW_OFFER = False
 
 # Define Program functions
 #--------------------------------------------------------------------------
@@ -33,8 +32,8 @@ def offer_rabbitmq_admin_site():
     print()
     if ans.lower() == "y":
         webbrowser.open_new("http://localhost:15672/#/queues")
-        print()
-        logger.info()
+        print("Website Opened")
+        logger.info("Website Opened")
 
 # Function to send message
 def send_message(host: str, first_queue_name: str, second_queue_name: str, input_file:str):
@@ -64,16 +63,22 @@ def send_message(host: str, first_queue_name: str, second_queue_name: str, input
             for row in reader:
             # Seperate row into variables by column
                 transit_date, transit_timestamp, station_complex_id, station_complex, borough, ridership = row
-                first_message = "".join(row)
-                second_message = str(station_complex)
+                header = next(reader)
+                first_message = str(station_complex)
+                second_message = (station_complex_id)
 
                 # Setting up First Message exchange
-                ch.basic_publish(exchange="", routing_key=first_queue_name, body=first_message)
+                ch.basic_publish(exchange="", 
+                                 routing_key=first_queue_name, 
+                                 body=first_message)
                 # print a message to the console for the user
                 logger.info(f" [x] Sent {first_message} to {first_queue_name}")
 
                 #Setting up Second Message exchange
-                ch.basic_publish(exchange="", routing_key=second_queue_name, body=second_message)
+                ch.basic_publish(exchange="", 
+                                 routing_key=second_queue_name, 
+                                 body=second_message, 
+                                 properties=pika.BasicProperties(content_type='text/plain', delivery_mode=2))
                 # print a message to the console for the user:
                 logger.info(f" [x] Sent {second_message} to {second_queue_name}")
                 # wait 3 seconds before sending the next message to the queue
@@ -94,15 +99,14 @@ def send_message(host: str, first_queue_name: str, second_queue_name: str, input
 # If this is the program being run, then execute the code below
 if __name__ == "__main__":  
     # ask the user if they'd like to open the RabbitMQ Admin site
-    if SHOW_OFFER == True:
-        offer_rabbitmq_admin_site()
+    offer_rabbitmq_admin_site()
    
     #------------------------------------------------------------------------#
     # Modifications to send message
 
     host = "localhost"
-    first_queue_name = "Flushings_queue"
-    second_queue_name = "stations_queue"
+    first_queue_name = "MTACaps_queue"
+    second_queue_name = "Flushings_queue"
     input_file_name = "Data_MTA_Subway_Hourly_Ridership.csv"
     # Input File Name:
     # send the message to the queue
