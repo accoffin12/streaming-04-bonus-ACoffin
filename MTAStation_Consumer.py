@@ -2,8 +2,7 @@
 Created by: A. C. Coffin
 Date: 24 May 2024
 
-Consumer 2 was created to determine if a station from the data set was from the Number 7 Line, Flushing Line. 
-Once the station has been determined it is then written to the csv file, "MTA_FlushingLine_Output.csv".
+Consumer 2 was created to abreviate the names from each borough. As a way to make the data faster to process.
 
 This emiter was designed to filter through all of the data entires found in DataMTA_SubwayRidershipNYE.csv.
 The process can be interrupted using Ctrl + C if an escape is needed.
@@ -18,26 +17,24 @@ from utils.util_logger import setup_logger
 # Configuring the Logger:
 logger, logname = setup_logger(__file__)
 
-output_file_name = "MTA_FlushingLine_Output.csv"
+output_file_name = "MTABouroughs_Output.csv"
 
-# Outlining which stations we are seeking that are on the Number 7 Line
-def is_7_train_line(station_complex_id):
-    return station_complex_id in [447, 448, 449, 450, 452, 453, 455, 457, 456, 458, 459, 460, 461, 463, 464, 471, 606]
 
 
 def callback(ch, method, properties, body):
-    station_complex_id = (body.decode())
-    if is_7_train_line(station_complex_id):
-        logger.info(f"Station {station_complex_id} is on the 7 Train or Flushing Line.")
-    else:
-        logger.info(f"Station {station_complex_id} is not on the 7 Train or Flushing Line")  
-    with open("MTACaps_Output.csv", 'a') as file:
-        writer = csv.writer(file, delimiter = ',')
-        writer.writerow(station_complex_id)
-    logger.info(" [x] Created CSV.")
+    logger.info(f" [x] Received {body.decode()}")
+    original = (body.decode())
+    abreviated = original[0]
+ 
+    with open("MTABouroughs_Output.csv", 'a') as file:
+        writer = csv.writer(file, delimiter=',')
+        writer.writerow([original, abreviated])
+    logger.info(" [x] Added to CSV.")
+    # achknowlege the message was recieved and can be deleted from the queue
+    ch.basic_ack(delivery_tag = method.delivery_tag)
 
 
-def main(hn: str, qn: str = "Flushings_queue"):
+def main(hn: str = "localhost", qn: str = "boroughs_queue"):
     """Continuously listen for the task messages on a named queue."""
     # Creating a conditional in case something goes wrong.
     try:
@@ -107,5 +104,5 @@ def main(hn: str, qn: str = "Flushings_queue"):
 if __name__ == "__main__":
     # call the main function with the information needed
     host = "localhost"
-    main("localhost", "Flushings_queue")    
+    main("localhost", "boroughs_queue")    
      

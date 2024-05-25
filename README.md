@@ -146,29 +146,7 @@ python ".\\utils\util_aboutenv.py"
 pip list
 ```
 # 8. Method
-For this project we will be utilizing a Round Robbin Schedule to pull data from multiple columns. The objective is to send one column to one Consumer and another Column to a different one but have both being emitted by the same Producer. In this case we will be using the first producer to pull only stops related to the Number 7 Flushing Line. This line connects Manhattan to Queens, specifically Long Island City. We want to know how many people are using this line. The second Consumer will be looking for the Hunter's Point Station and capitalizing the letters. Each of these will feed into a specified output csv file.
-
-The following Stations are on the Number 7, Flushing Line:
-| station_complex_id | station_complex |
-| ----- | ----- |
-| 447 | Flushing-Main St (7) |
-| 448 | Mets-Willets Point (7) |
-| 449 | 111 St (7) |
-| 450 | 103 St-Corona Plaza (7) |
-| 451 | Junction Blvd (7) |
-| 452 | 90 St-Elmhurst Av (7) |
-| 453 | 82 St-Jackons Hts (7) |
-| 455 | 69 St (7) |
-| 456 | 61 St-Woodside (7) |
-| 457 | 52 St (7) |
-| 458 | 46 St-Bliss St (7) |
-| 459 | St-Lowery St (7)|
-| 460 | 33 St-Rawson St (7) |
-| 461 | Queensboro Plaza (7, N, W) |
-| 463 | Hunters Point Av (7) |
-| 464 | Vernon Blvd-Jackson Av (7) |
-| 471 | 34 St-Hudson Yards (7) |
-| 606 | Court Sq (E, G, M, 7) |
+For this project we will be utilizing a Round Robbin Schedule to pull data from multiple columns. The objective is to send one column to one Consumer and another Column to a different one but have both being emitted by the same Producer. In this case we will be using the first producer to pull the names of each station complex and capitalize them. The second is to abreviate each of the broughs into the first letter of their full name to make them easier to process.
 
 ## 8a. The Producer
 

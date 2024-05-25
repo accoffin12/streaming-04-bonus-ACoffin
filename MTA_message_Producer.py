@@ -59,26 +59,23 @@ def send_message(host: str, first_queue_name: str, second_queue_name: str, input
         
         # read each row from Data_MTA_Subway_Hourly_Rideship.csv
         with open(input_file_name, "r") as input_file:
-            reader=csv.reader(input_file, delimiter=",")
+            reader = csv.reader(input_file)
+            header = next(reader)
             for row in reader:
             # Seperate row into variables by column
                 transit_date, transit_timestamp, station_complex_id, station_complex, borough, ridership = row
-                header = next(reader)
+
+                # Define first and second message
                 first_message = str(station_complex)
-                second_message = (station_complex_id)
+                second_message = str(borough)
 
                 # Setting up First Message exchange
-                ch.basic_publish(exchange="", 
-                                 routing_key=first_queue_name, 
-                                 body=first_message)
+                ch.basic_publish(exchange="", routing_key=first_queue_name, body=first_message)
                 # print a message to the console for the user
                 logger.info(f" [x] Sent {first_message} to {first_queue_name}")
 
                 #Setting up Second Message exchange
-                ch.basic_publish(exchange="", 
-                                 routing_key=second_queue_name, 
-                                 body=second_message, 
-                                 properties=pika.BasicProperties(content_type='text/plain', delivery_mode=2))
+                ch.basic_publish(exchange="", routing_key=second_queue_name, body=second_message)
                 # print a message to the console for the user:
                 logger.info(f" [x] Sent {second_message} to {second_queue_name}")
                 # wait 3 seconds before sending the next message to the queue
@@ -107,9 +104,9 @@ if __name__ == "__main__":
 
     host = "localhost"
     first_queue_name = "MTACaps_queue"
-    second_queue_name = "Flushings_queue"
+    second_queue_name = "boroughs_queue"
     input_file_name = "DataMTA_SubwayRidershipNYE.csv"
     
 
     # Modified for function written
-    send_message(host, first_queue_name, second_queue_name, input_file_name )
+    send_message(host, "MTACaps_queue", "boroughs_queue", input_file_name )
