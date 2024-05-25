@@ -1,6 +1,6 @@
 # streaming-04-bonus-ACoffin
 > Created by: A. C. Coffin | Date: 24 May 2024 | 
-> NW missouri State University | CSIS: 44671-80/81: Data Streaming | Dr. Case
+> NW Missouri State University | CSIS: 44671-80/81: Data Streaming | Dr. Case
 
 # Overview:
 Demonstrating the application of a Round Robin Schedule with RabbitMQ to analyze MTA Subway Data. This project is a continued exploration into the MTA Data utilized in [streaming-03-bonus-acoffin](https://github.com/accoffin12/streaming-03-rabbitmq). By scheduling the CPU it maximizes the efficiency of the machine while preventing deadlock. The objective is to break the tasks up according to specific processes outlined in a Consumer. Each Consumer will execute these tasks, one at a time. If there are two Consumers, Consumer1 will begin the task, while Consumer2 waits. However, rather than waiting until the entirety of the task is completed, a quantum timer is implemented for each task, stipulating that each Consumer and Producer is allotted a specific amount of time. So if Consumer1 does not complete its longer task, Consumer2 can take over, and once completed the Producer will send more messages.
@@ -15,7 +15,7 @@ Demonstrating the application of a Round Robin Schedule with RabbitMQ to analyze
 5. [Data Source](Data_Source)
     * [About the NYC Subway System](About_the_NYC_Subway_System)
 6. [Modifications of Data](Modifications_of_Data)
-7. [Creating an Enviroment & Installs](Creating_an_Enviroment_&_Installs)
+7. [Creating an Environment & Installs](Creating_an_Enviroment_&_Installs)
 8. [Method](Method)
 9. [Executing the Code](Executing_the_Code)
 10. [Results](Results)
@@ -107,11 +107,17 @@ The New York City Subway system has 24 subway lines and 472 stations throughout 
 
 
 # 6. Modifications of Data
+<<<<<<< HEAD
 The source contained 12 columns, this was altered to a total of 7 columns. The original column from the data set called "transit_time" has been split into only date and time. Time has also been converted to military time for clarity. There are 56.3 million rows in the original set, for the sake of speed we will be looking at a single day New Year's Eve 12/31/2022 with 106 rows. This date was selected as it marks the end of the calendar year and contains at least one instance of each subway station.
 
 The focus of this project is on transit_date, transit_time, station_complex_id, station_complex, borough, and ridership. The columns "payment", "fare", "transfers", "lat", "long" and "geo-reference" has been removed.
+=======
+The source contained 12 columns, this was altered to a total of 7 columns. The original column from the data set called "transit_time" has been split into only date and time. Time has also been converted to military time for clarity. There are 56.3 million rows in the original set, for the sake of speed we will be looking at a single day New Year's Eve 12/31/2022 with 106 rows. This date was selected as it marks the end of the calendar year and contains at least one instance of each subway station. 
 
-# 7. Creating an Enviroment & Installs
+The focus of this project is on transit_date, transit_time, station_complex_id, station_complex, borough, and ridership. The columns "payment", "fare", "transfers", "lat", "long" and "geo-reference" has been removed. 
+>>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
+
+# 7. Creating an Environment & Installs
 Before beginning this project two environments were made, one as a VS Code environment and the other as an Anaconda environment. RabbitMQ requires the Pika Library to function, to ensure that the scripts execute and create an environment in either VS Code or Anaconda.
 
 VS Code Environments allow us to create a virtual environment within the workspace to isolate Python projects with its pre-installed packages and interpreter. For light projects, this is optimal as VS Code environments will not touch other environments or Python installations. However, pre-installed packages can be limited, and the environments will only stay within the selected folder. The second method of creating an Anaconda environment is different, it's designed for a heavier workload. This method creates a reusable environment with specific Python versions and pre-installed packages. However, this method can be heavier due to the additional packages.
@@ -203,7 +209,11 @@ Next, we had to read from the CSV file, this independently was not a challenge, 
                 first_message = str(station_complex)
                 second_message = str(borough)
 ```
+<<<<<<< HEAD
 After integrating the reading block into the main function `send_message`, he rest of the script is structured like a traditional Producer script. The exception is that we have to define each of the queues. To send messages to two different queues that can then be processed by two different Consumers we have to define each of them.
+=======
+After integrating the reading block into the main function `send_message`, the rest of the script is structured like a traditional Producer script. The exception is that we have to define each of the queues. To send messages to two different queues that can then be processed by two different Consumers we have to define each of them. 
+>>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 
 ```
 # Define first and second message
@@ -222,7 +232,11 @@ After integrating the reading block into the main function `send_message`, he re
                 # wait 3 seconds before sending the next message to the queue
                 time.sleep(3)
 ```
+<<<<<<< HEAD
 Each exchange must contain the `exchange`, `routing_key` and `body`. Each of these receives individual print and logger messages. This is intentional, as the project requires multiple terminals to run, it is impossible to keep track of the logs and the terminals simultaneously. The final alteration that must be made when creating a single Producer with the ability to transmit data to two different Consumers is to specify the queues. An Entry Point under the classic `if __name__ == "__main__":`. Then each of the queues is defined within the `send_mesage` line. Separate lines are defining these queues which were added as notes when creating active queues.
+=======
+Each exchange must contain the `exchange`, `routing_key`, and `body`. Each of these receives individual print and logger messages. This is intentional, as the project requires multiple terminals to run, it is impossible to keep track of the logs and the terminals simultaneously. The final alteration that must be made when creating a single Producer with the ability to transmit data to two different Consumers is to specify the queues. An Entry Point under the classic boiler-plate `if __name__ == "__main__":` was added. Then each of the queues is defined within the `send_mesage` line. Separate lines are defining these queues which were added as notes when creating active queues.
+>>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 
 ```
 if __name__ == "__main__":  
@@ -250,7 +264,7 @@ output_file_name = "MTACaps_Output.csv"
 
 def callback(ch, method, properties, body):
     """ Defining behavior on getting a message."""
-    # decode the binary mesage body to a string
+    # decode the binary message body to a string
     logger.info(f"[x] Recieved {body.decode()}")
     original = str(body.decode())
     upper = original.upper()
@@ -264,7 +278,7 @@ def callback(ch, method, properties, body):
 ```
 The rest of the code is a standard Consumer Script written specifically to interact with RabbitMQ, to see more examples of this go to [streaming-04-multiple-consumers](https://github.com/accoffin12/streaming-04-multiple-consumers).
 
-Once the rest of the main code is added, the final alterations are made in the Entry Point, similar to the Producer, there are variables that are addressed here.
+Once the rest of the main code is added, the final alterations are made in the Entry Point, similar to the Producer, some variables are addressed here.
 
 ```
 if __name__ == "__main__":
@@ -273,7 +287,11 @@ if __name__ == "__main__":
     main("localhost", "MTACaps_queue")
 ```
 
+<<<<<<< HEAD
 ## 8c. Developing MTABoroughts_Consumer.py
+=======
+## 8c. Developing MTABouroughts_Consumer.py
+>>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 This particular Consumer went through multiple transformations. Initially, it was a filter to pull the stations that were part of the Number 7 Flushing Line. However, the filter was not working properly and will require more time. Instead, this Consumer is designed to take the full name of the Borough and shorten it to the first 3 letters. This is often done when creating outputs with large amounts of data as a way to quickly process it. Similar to the setup of the first consumer, this one shares nearly all the base code, except the function that modifies the output and the Entry Point.
 
 ```
@@ -288,7 +306,7 @@ def callback(ch, method, properties, body):
         writer = csv.writer(file, delimiter=',')
         writer.writerow([original, abreviated])
     logger.info(" [x] Added to CSV.")
-    # achknowlege the message was recieved and can be deleted from the queue
+    # achknowlege the message was received and can be deleted from the queue
     ch.basic_ack(delivery_tag = method.delivery_tag)
 ```
 Notice how in this instance we are abbreviating the borough by calling on the first three letters of the string after processing it. Once processed the original and the abbreviated variations of the boroughs are written into "MTABouroughs_Output.csv". The Entry Point differs in that the queues being used have changed.
@@ -306,14 +324,14 @@ Executing this particular code is complex and requires a series of steps. Follow
 2. In each of the 3 terminals set the file path to where the repo sits. Use the following structure to access this folder path.
 ```
 cd Documents/folder_where_repo_is/
-cd Documents/ACoffinCSIS44671/streaming-04-bonus-ACoffin # Path this repo in on in my machine.
+cd Documents/ACoffinCSIS44671/streaming-04-bonus-ACoffin # Path this repo is on in my machine.
 ```
 
 3. Then activate the created RabbitEnv within each terminal.
 ```
 conda activate RabbitEnv
 ```
-The result should be a set up that looks like this without any code being enteres into the terminals.
+The result should be a setup that looks like this without any code being entered into the terminals.
 ![ScreenSetupVSAnaconda](ScreenShots/ScreenSetupVSAnaconda.PNG)
 
 4. In one terminal run the Consumer, "MTABoroughs_Consumer.py"
@@ -325,11 +343,15 @@ The result should be a set up that looks like this without any code being entere
 6. In the last terminal run the Producer, "MTA_message_Producer.py"
 `python MTA_message_Producer.py`
 
-Allow the code to run through the lines of the CSV, and remember that the process must be interupted in each terminal as it will not complete on its own.
+Allow the code to run through the lines of the CSV, and remember that the process must be interrupted in each terminal as it will not complete on its own.
 ![FunctioningConsumers1Producer](ScreenShots/FunctioningConsumers1Producer.PNG)
 
 # 10. Results
+<<<<<<< HEAD
 Using multiple consumers on a complex data stream can be helpful, however, it is important to note that each of the messages is for singular columns. To pull an entire strand of data the user must use "".join() to extract entire lines and then export them into a csv. Originally one of the consumers was intended to act as a filter, however, I was unable to get this to function properly. As a result, I reverted to a simple project and set the filter variation on the side to experiment with. The Round Robin scheduling technique was not as apparent here, while it is true that each of the processes did alternate between which would pull from the queue and send to the queue, the data wasn't long enough to depict this process entirely.
+=======
+Using multiple consumers on a complex data stream can be helpful, however, it is important to note that each of the messages is for singular columns. To pull an entire strand of data the user must use `"".join()` to extract entire lines and then export them into a csv. Originally one of the consumers was intended to act as a filter, however, I was unable to get this to function properly. As a result, I reverted to a simple project and set the filter variation on the side to experiment with. The Round Robin scheduling technique was not as apparent here, while it is true that each of the processes did alternate between which would pull from the queue and send to the queue, the data wasn't long enough to depict this process entirely. 
+>>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 
 ![FinalVersion](ScreenShots/FinalVersion2Consumers1Producer.PNG)
 
