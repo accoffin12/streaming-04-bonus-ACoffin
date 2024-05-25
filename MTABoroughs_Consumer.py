@@ -17,7 +17,7 @@ from utils.util_logger import setup_logger
 # Configuring the Logger:
 logger, logname = setup_logger(__file__)
 
-output_file_name = "MTABouroughs_Output.csv"
+output_file_name = "MTABoroughs_Output.csv"
 
 
 
@@ -26,7 +26,7 @@ def callback(ch, method, properties, body):
     original = (body.decode())
     abreviated = original[:3]
  
-    with open("MTABouroughs_Output.csv", 'a') as file:
+    with open("MTABoroughs_Output.csv", 'a') as file:
         writer = csv.writer(file, delimiter=',')
         writer.writerow([original, abreviated])
     logger.info(" [x] Added to CSV.")
