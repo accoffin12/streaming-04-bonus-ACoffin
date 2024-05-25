@@ -88,7 +88,7 @@ The New York City Subway system has 24 subway lines and 472 stations throughout 
 
 
 # 6. Modifications of Data
-The original source contained 12 columns, this was altered to a total of 7 columns. The original column from the data set called "transit_time" has been split into only date and time. Time has also been converted to military time for clarity. There are 56.3 million rows in this set, the same as the original.
+The original source contained 12 columns, this was altered to a total of 7 columns. The original column from the data set called "transit_time" has been split into only date and time. Time has also been converted to military time for clarity. There are 56.3 million rows in the original set, for the sake of speed we will be looking at a single day New Years Eve 12/31/2022 with 106 rows. This date was selected as it marks the end of the callandar year and contains at least one instance of each subway station. 
 
 The focus of this project is on transit_date, transit_time, station_complex_id, station_complex, borough, and rideship. The columns "payment", "fare", "transfers", "lat", "long" and "geo-reference have been removed. 
 
@@ -146,7 +146,7 @@ python ".\\utils\util_aboutenv.py"
 pip list
 ```
 # 8. Method
-For this project we will be utilizing a Round Robbin Schedule to pull data from multiple columns. The objective is to send one column to one Consumer and another Column to a different one but have both being emitted by the same Producer. In this case we will be using the first producer to pull only stops related to the Number 7 Flushing Line. This line connects Manhattan to Queens, specifically Long Island City. We want to know how many people are using this line. The second Consumer will be looking for the Hunter's Point Station and capitalizing the letters. Both of these will feed into a csv file called "MTA_7Flushing_Output.csv". The second is to transform all of the station names to capital letters, which is in MTACaps_Consumer.py.
+For this project we will be utilizing a Round Robbin Schedule to pull data from multiple columns. The objective is to send one column to one Consumer and another Column to a different one but have both being emitted by the same Producer. In this case we will be using the first producer to pull only stops related to the Number 7 Flushing Line. This line connects Manhattan to Queens, specifically Long Island City. We want to know how many people are using this line. The second Consumer will be looking for the Hunter's Point Station and capitalizing the letters. Each of these will feed into a specified output csv file.
 
 The following Stations are on the Number 7, Flushing Line:
 | station_complex_id | station_complex |

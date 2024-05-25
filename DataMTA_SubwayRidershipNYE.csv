@@ -1,0 +1,110 @@
+﻿transit_date,transit_timestamp,station_complex_id,station_complex,borough,ridership
+12/31/2022,0:00:00,446,Morris Park (5),Bronx,1
+12/31/2022,0:00:00,447,Flushing-Main St (7),Queens,10
+12/31/2022,0:00:00,447,Flushing-Main St (7),Queens,62
+12/31/2022,0:00:00,447,Flushing-Main St (7),Queens,13
+12/31/2022,0:00:00,447,Flushing-Main St (7),Queens,2
+12/31/2022,0:00:00,449,111 St (7),Queens,21
+12/31/2022,0:00:00,447,Flushing-Main St (7),Queens,26
+12/31/2022,0:00:00,447,Flushing-Main St (7),Queens,51
+12/31/2022,0:00:00,448,Mets-Willets Point (7),Queens,1
+12/31/2022,0:00:00,447,Flushing-Main St (7),Queens,79
+12/31/2022,0:00:00,448,Mets-Willets Point (7),Queens,4
+12/31/2022,0:00:00,448,Mets-Willets Point (7),Queens,1
+12/31/2022,0:00:00,449,111 St (7),Queens,2
+12/31/2022,0:00:00,449,111 St (7),Queens,11
+12/31/2022,0:00:00,449,111 St (7),Queens,1
+12/31/2022,0:00:00,449,111 St (7),Queens,2
+12/31/2022,0:00:00,449,111 St (7),Queens,7
+12/31/2022,0:00:00,45,Beverley Rd (Q),Brooklyn,2
+12/31/2022,0:00:00,45,Beverley Rd (Q),Brooklyn,1
+12/31/2022,0:00:00,45,Beverley Rd (Q),Brooklyn,2
+12/31/2022,0:00:00,45,Beverley Rd (Q),Brooklyn,6
+12/31/2022,0:00:00,450,103 St-Corona Plaza (7),Queens,9
+12/31/2022,0:00:00,450,103 St-Corona Plaza (7),Queens,1
+12/31/2022,0:00:00,450,103 St-Corona Plaza (7),Queens,5
+12/31/2022,0:00:00,450,103 St-Corona Plaza (7),Queens,30
+12/31/2022,0:00:00,451,Junction Blvd (7),Queens,22
+12/31/2022,0:00:00,451,Junction Blvd (7),Queens,3
+12/31/2022,0:00:00,450,103 St-Corona Plaza (7),Queens,31
+12/31/2022,0:00:00,451,Junction Blvd (7),Queens,1
+12/31/2022,0:00:00,451,Junction Blvd (7),Queens,23
+12/31/2022,0:00:00,451,Junction Blvd (7),Queens,4
+12/31/2022,0:00:00,452,90 St-Elmhurst Av (7),Queens,13
+12/31/2022,0:00:00,451,Junction Blvd (7),Queens,26
+12/31/2022,0:00:00,452,90 St-Elmhurst Av (7),Queens,1
+12/31/2022,0:00:00,452,90 St-Elmhurst Av (7),Queens,6
+12/31/2022,0:00:00,452,90 St-Elmhurst Av (7),Queens,13
+12/31/2022,0:00:00,452,90 St-Elmhurst Av (7),Queens,9
+12/31/2022,0:00:00,453,82 St-Jackson Hts (7),Queens,3
+12/31/2022,0:00:00,453,82 St-Jackson Hts (7),Queens,25
+12/31/2022,0:00:00,453,82 St-Jackson Hts (7),Queens,6
+12/31/2022,0:00:00,453,82 St-Jackson Hts (7),Queens,1
+12/31/2022,0:00:00,453,82 St-Jackson Hts (7),Queens,8
+12/31/2022,0:00:00,453,82 St-Jackson Hts (7),Queens,21
+12/31/2022,0:00:00,455,69 St (7),Queens,5
+12/31/2022,0:00:00,453,82 St-Jackson Hts (7),Queens,36
+12/31/2022,0:00:00,455,69 St (7),Queens,4
+12/31/2022,0:00:00,455,69 St (7),Queens,1
+12/31/2022,0:00:00,455,69 St (7),Queens,11
+12/31/2022,0:00:00,455,69 St (7),Queens,1
+12/31/2022,0:00:00,455,69 St (7),Queens,7
+12/31/2022,0:00:00,456,61 St-Woodside (7),Queens,20
+12/31/2022,0:00:00,456,61 St-Woodside (7),Queens,2
+12/31/2022,0:00:00,456,61 St-Woodside (7),Queens,3
+12/31/2022,0:00:00,456,61 St-Woodside (7),Queens,10
+12/31/2022,0:00:00,456,61 St-Woodside (7),Queens,3
+12/31/2022,0:00:00,456,61 St-Woodside (7),Queens,17
+12/31/2022,0:00:00,456,61 St-Woodside (7),Queens,27
+12/31/2022,0:00:00,457,52 St (7),Queens,1
+12/31/2022,0:00:00,457,52 St (7),Queens,2
+12/31/2022,0:00:00,457,52 St (7),Queens,7
+12/31/2022,0:00:00,457,52 St (7),Queens,3
+12/31/2022,0:00:00,458,46 St-Bliss St (7),Queens,13
+12/31/2022,0:00:00,458,46 St-Bliss St (7),Queens,1
+12/31/2022,0:00:00,458,46 St-Bliss St (7),Queens,5
+12/31/2022,0:00:00,458,46 St-Bliss St (7),Queens,11
+12/31/2022,0:00:00,459,40 St-Lowery St (7),Queens,7
+12/31/2022,0:00:00,459,40 St-Lowery St (7),Queens,1
+12/31/2022,0:00:00,458,46 St-Bliss St (7),Queens,26
+12/31/2022,0:00:00,459,40 St-Lowery St (7),Queens,1
+12/31/2022,0:00:00,459,40 St-Lowery St (7),Queens,8
+12/31/2022,0:00:00,459,40 St-Lowery St (7),Queens,3
+12/31/2022,0:00:00,459,40 St-Lowery St (7),Queens,6
+12/31/2022,0:00:00,459,40 St-Lowery St (7),Queens,1
+12/31/2022,0:00:00,46,Cortelyou Rd (Q),Brooklyn,1
+12/31/2022,0:00:00,46,Cortelyou Rd (Q),Brooklyn,1
+12/31/2022,0:00:00,46,Cortelyou Rd (Q),Brooklyn,1
+12/31/2022,0:00:00,46,Cortelyou Rd (Q),Brooklyn,1
+12/31/2022,0:00:00,46,Cortelyou Rd (Q),Brooklyn,1
+12/31/2022,0:00:00,46,Cortelyou Rd (Q),Brooklyn,16
+12/31/2022,0:00:00,460,33 St-Rawson St (7),Queens,1
+12/31/2022,0:00:00,460,33 St-Rawson St (7),Queens,1
+12/31/2022,0:00:00,460,33 St-Rawson St (7),Queens,5
+12/31/2022,0:00:00,460,33 St-Rawson St (7),Queens,2
+12/31/2022,0:00:00,460,33 St-Rawson St (7),Queens,4
+12/31/2022,0:00:00,461,"Queensboro Plaza (7,N,W)",Queens,2
+12/31/2022,0:00:00,460,33 St-Rawson St (7),Queens,7
+12/31/2022,0:00:00,461,"Queensboro Plaza (7,N,W)",Queens,22
+12/31/2022,0:00:00,461,"Queensboro Plaza (7,N,W)",Queens,2
+12/31/2022,0:00:00,461,"Queensboro Plaza (7,N,W)",Queens,8
+12/31/2022,0:00:00,461,"Queensboro Plaza (7,N,W)",Queens,13
+12/31/2022,0:00:00,461,"Queensboro Plaza (7,N,W)",Queens,7
+12/31/2022,0:00:00,463,Hunters Point Av (7),Queens,2
+12/31/2022,0:00:00,461,"Queensboro Plaza (7,N,W)",Queens,62
+12/31/2022,0:00:00,463,Hunters Point Av (7),Queens,1
+12/31/2022,0:00:00,463,Hunters Point Av (7),Queens,3
+12/31/2022,0:00:00,463,Hunters Point Av (7),Queens,1
+12/31/2022,0:00:00,463,Hunters Point Av (7),Queens,7
+12/31/2022,0:00:00,463,Hunters Point Av (7),Queens,4
+12/31/2022,0:00:00,463,Hunters Point Av (7),Queens,1
+12/31/2022,0:00:00,464,Vernon Blvd-Jackson Av (7),Queens,17
+12/31/2022,0:00:00,464,Vernon Blvd-Jackson Av (7),Queens,2
+12/31/2022,0:00:00,464,Vernon Blvd-Jackson Av (7),Queens,3
+12/31/2022,0:00:00,464,Vernon Blvd-Jackson Av (7),Queens,6
+12/31/2022,0:00:00,464,Vernon Blvd-Jackson Av (7),Queens,49
+12/31/2022,0:00:00,464,Vernon Blvd-Jackson Av (7),Queens,15
+,,,,,
+,,,,,
+,,,,,
+,,,,,

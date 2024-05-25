@@ -103,14 +103,13 @@ if __name__ == "__main__":
    
     #------------------------------------------------------------------------#
     # Modifications to send message
+    # The Particulars
 
     host = "localhost"
     first_queue_name = "MTACaps_queue"
     second_queue_name = "Flushings_queue"
-    input_file_name = "Data_MTA_Subway_Hourly_Ridership.csv"
-    # Input File Name:
-    # send the message to the queue
-    #send_message("localhost","task_queue2",message)
+    input_file_name = "DataMTA_SubwayRidershipNYE.csv"
+    
 
     # Modified for function written
     send_message(host, first_queue_name, second_queue_name, input_file_name )
