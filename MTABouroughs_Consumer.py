@@ -24,7 +24,7 @@ output_file_name = "MTABouroughs_Output.csv"
 def callback(ch, method, properties, body):
     logger.info(f" [x] Received {body.decode()}")
     original = (body.decode())
-    abreviated = original[0]
+    abreviated = original[:3]
  
     with open("MTABouroughs_Output.csv", 'a') as file:
         writer = csv.writer(file, delimiter=',')
