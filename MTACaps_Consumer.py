@@ -3,6 +3,8 @@ Created by: A. C. Coffin
 Date: 24 May 2024
 
 Consumer1 was designed to capitalize the names of each of the stations to make them easier to read.
+Once it has turned the entirety of the Station Complex name into capital letters it will feed it into a CSV.
+The CSV file "MTACaps_Output.csv" compares the original station name to the new capitalized name.
 
 """
 

@@ -6,7 +6,7 @@ Producer designed to send messages to a queue on the RabbitMQ server.
 Make sure the RabbitMQ server is on an connected before running.
 Run this After Running Consumers. We will need multiple consumers to exicute our task.
 
-This emiter was designed to filter through all of the data entires found in Data_MTA_Subway_Hourly_Rideship.csv.
+This emiter was designed to filter through all of the data entires found in DataMTA_SubwayRidershipNYE.csv.
 The process can be interrupted using Ctrl + C if an escape is needed.
 """
 

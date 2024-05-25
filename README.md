@@ -169,3 +169,16 @@ The following Stations are on the Number 7, Flushing Line:
 | 464 | Vernon Blvd-Jackson Av (7) |
 | 471 | 34 St-Hudson Yards (7) |
 | 606 | Court Sq (E, G, M, 7) |
+
+## 8a. The Producer
+
+
+## 8b. Developing MTACaps_Consumer
+
+## 8c. Developing MTAFlushingLine_Consumer
+
+# 9. Executing the Code
+
+# 10. Results
+
+# 11. References

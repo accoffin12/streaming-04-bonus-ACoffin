@@ -3,8 +3,9 @@ Created by: A. C. Coffin
 Date: 24 May 2024
 
 Consumer 2 was created to determine if a station from the data set was from the Number 7 Line, Flushing Line. 
+Once the station has been determined it is then written to the csv file, "MTA_FlushingLine_Output.csv".
 
-This emiter was designed to filter through all of the data entires found in Data_MTA_Subway_Hourly_Rideship.csv.
+This emiter was designed to filter through all of the data entires found in DataMTA_SubwayRidershipNYE.csv.
 The process can be interrupted using Ctrl + C if an escape is needed.
 """
 import pika
