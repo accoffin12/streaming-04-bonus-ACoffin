@@ -107,15 +107,9 @@ The New York City Subway system has 24 subway lines and 472 stations throughout 
 
 
 # 6. Modifications of Data
-<<<<<<< HEAD
-The source contained 12 columns, this was altered to a total of 7 columns. The original column from the data set called "transit_time" has been split into only date and time. Time has also been converted to military time for clarity. There are 56.3 million rows in the original set, for the sake of speed we will be looking at a single day New Year's Eve 12/31/2022 with 106 rows. This date was selected as it marks the end of the calendar year and contains at least one instance of each subway station.
-
-The focus of this project is on transit_date, transit_time, station_complex_id, station_complex, borough, and ridership. The columns "payment", "fare", "transfers", "lat", "long" and "geo-reference" has been removed.
-=======
 The source contained 12 columns, this was altered to a total of 7 columns. The original column from the data set called "transit_time" has been split into only date and time. Time has also been converted to military time for clarity. There are 56.3 million rows in the original set, for the sake of speed we will be looking at a single day New Year's Eve 12/31/2022 with 106 rows. This date was selected as it marks the end of the calendar year and contains at least one instance of each subway station. 
 
 The focus of this project is on transit_date, transit_time, station_complex_id, station_complex, borough, and ridership. The columns "payment", "fare", "transfers", "lat", "long" and "geo-reference" has been removed. 
->>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 
 # 7. Creating an Environment & Installs
 Before beginning this project two environments were made, one as a VS Code environment and the other as an Anaconda environment. RabbitMQ requires the Pika Library to function, to ensure that the scripts execute and create an environment in either VS Code or Anaconda.
@@ -209,11 +203,7 @@ Next, we had to read from the CSV file, this independently was not a challenge, 
                 first_message = str(station_complex)
                 second_message = str(borough)
 ```
-<<<<<<< HEAD
 After integrating the reading block into the main function `send_message`, he rest of the script is structured like a traditional Producer script. The exception is that we have to define each of the queues. To send messages to two different queues that can then be processed by two different Consumers we have to define each of them.
-=======
-After integrating the reading block into the main function `send_message`, the rest of the script is structured like a traditional Producer script. The exception is that we have to define each of the queues. To send messages to two different queues that can then be processed by two different Consumers we have to define each of them. 
->>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 
 ```
 # Define first and second message
@@ -232,11 +222,7 @@ After integrating the reading block into the main function `send_message`, the r
                 # wait 3 seconds before sending the next message to the queue
                 time.sleep(3)
 ```
-<<<<<<< HEAD
-Each exchange must contain the `exchange`, `routing_key` and `body`. Each of these receives individual print and logger messages. This is intentional, as the project requires multiple terminals to run, it is impossible to keep track of the logs and the terminals simultaneously. The final alteration that must be made when creating a single Producer with the ability to transmit data to two different Consumers is to specify the queues. An Entry Point under the classic `if __name__ == "__main__":`. Then each of the queues is defined within the `send_mesage` line. Separate lines are defining these queues which were added as notes when creating active queues.
-=======
 Each exchange must contain the `exchange`, `routing_key`, and `body`. Each of these receives individual print and logger messages. This is intentional, as the project requires multiple terminals to run, it is impossible to keep track of the logs and the terminals simultaneously. The final alteration that must be made when creating a single Producer with the ability to transmit data to two different Consumers is to specify the queues. An Entry Point under the classic boiler-plate `if __name__ == "__main__":` was added. Then each of the queues is defined within the `send_mesage` line. Separate lines are defining these queues which were added as notes when creating active queues.
->>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 
 ```
 if __name__ == "__main__":  
@@ -287,11 +273,7 @@ if __name__ == "__main__":
     main("localhost", "MTACaps_queue")
 ```
 
-<<<<<<< HEAD
-## 8c. Developing MTABoroughts_Consumer.py
-=======
 ## 8c. Developing MTABouroughts_Consumer.py
->>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 This particular Consumer went through multiple transformations. Initially, it was a filter to pull the stations that were part of the Number 7 Flushing Line. However, the filter was not working properly and will require more time. Instead, this Consumer is designed to take the full name of the Borough and shorten it to the first 3 letters. This is often done when creating outputs with large amounts of data as a way to quickly process it. Similar to the setup of the first consumer, this one shares nearly all the base code, except the function that modifies the output and the Entry Point.
 
 ```
@@ -347,11 +329,7 @@ Allow the code to run through the lines of the CSV, and remember that the proces
 ![FunctioningConsumers1Producer](ScreenShots/FunctioningConsumers1Producer.PNG)
 
 # 10. Results
-<<<<<<< HEAD
 Using multiple consumers on a complex data stream can be helpful, however, it is important to note that each of the messages is for singular columns. To pull an entire strand of data the user must use "".join() to extract entire lines and then export them into a csv. Originally one of the consumers was intended to act as a filter, however, I was unable to get this to function properly. As a result, I reverted to a simple project and set the filter variation on the side to experiment with. The Round Robin scheduling technique was not as apparent here, while it is true that each of the processes did alternate between which would pull from the queue and send to the queue, the data wasn't long enough to depict this process entirely.
-=======
-Using multiple consumers on a complex data stream can be helpful, however, it is important to note that each of the messages is for singular columns. To pull an entire strand of data the user must use `"".join()` to extract entire lines and then export them into a csv. Originally one of the consumers was intended to act as a filter, however, I was unable to get this to function properly. As a result, I reverted to a simple project and set the filter variation on the side to experiment with. The Round Robin scheduling technique was not as apparent here, while it is true that each of the processes did alternate between which would pull from the queue and send to the queue, the data wasn't long enough to depict this process entirely. 
->>>>>>> 4e9e947e8526ecdb8a0ecc9e558d9a2b2db671d3
 
 ![FinalVersion](ScreenShots/FinalVersion2Consumers1Producer.PNG)
 
